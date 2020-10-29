@@ -1,41 +1,80 @@
-# the-module [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/the-module/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/the-module)
+# middle-item [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/middle-item/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/middle-item)
 
-My awesome module.
+Get the middle item from an array.
 
-[![NPM Badge](https://nodei.co/npm/the-module.png)](https://npmjs.com/package/the-module)
+[![NPM Badge](https://nodei.co/npm/middle-item.png)](https://npmjs.com/package/middle-item)
 
 ## Install
 
 ```sh
-npm install the-module
+npm install middle-item
 ```
 
 ## Usage
 
 ```js
-const theModule = require("the-module")
+const middleItem = require("middle-item")
 
-theModule("unicorns")
-//=> "unicorns & rainbows"
+middleItem([1, 2, 3])
+//=> 2
+
+middleItem([1, 2, 3, 4])
+//=> 2
+
+middleItem([1, 2, 3, 4], { leanRight: true })
+//=> 3
+
+middleItem.multiple([1, 2, 3, 4, 5], 3)
+//=> [2, 3, 4]
+
+middleItem.multiple([1, 2, 3, 4, 5], 2)
+//=> [2, 3]
+
+middleItem.multiple([1, 2, 3, 4, 5], 2, { leanRight: true })
+//=> [3, 4]
 ```
 
 ## API
 
-### theModule(input, options?)
+### middleItem(array, options?)
 
-#### input
+Get the middle item from an array.
 
-Type: `string`
+#### array
 
-Lorem ipsum.
+Type: `array`
+
+The array to get the middle item from.
 
 #### options
 
 Type: `object`
 
-##### postfix
+##### leanRight
 
-Type: `string`\
-Default: `rainbows`
+Type: `boolean`\
+Default: `false`
 
-Lorem ipsum.
+If trying to get an even number of items from an array with an odd number of items (or vice versa), prefer the item on the right side of the middle rather than the left.
+
+### middleItem.multiple(array, count, options?)
+
+Get items from the middle of an array.
+
+#### array
+
+Type: `array`
+
+The array to get the middle items from.
+
+#### count
+
+Type: `number`
+
+The amount of items to get.
+
+#### options
+
+Type: `object`
+
+Same as [`middleItem`](#options)

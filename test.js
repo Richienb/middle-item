@@ -1,13 +1,14 @@
 const test = require("ava")
-const theModule = require(".")
+const middleItem = require(".")
 
 test("main", t => {
-	t.throws(() => {
-		theModule(123)
-	}, {
-		instanceOf: TypeError,
-		message: "Expected a string, got number"
-	})
+	t.is(middleItem([1, 2, 3]), 2)
+	t.is(middleItem([1, 2, 3, 4]), 2)
+	t.is(middleItem([1, 2, 3, 4], { leanRight: true }), 3)
+})
 
-	t.is(theModule("unicorns"), "unicorns & rainbows")
+test(".multiple()", t => {
+	t.deepEqual(middleItem.multiple([1, 2, 3, 4, 5], 3), [2, 3, 4])
+	t.deepEqual(middleItem.multiple([1, 2, 3, 4, 5], 2), [2, 3])
+	t.deepEqual(middleItem.multiple([1, 2, 3, 4, 5], 2, { leanRight: true }), [3, 4])
 })
