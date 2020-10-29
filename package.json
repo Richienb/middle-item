@@ -1,6 +1,6 @@
 {
 	"name": "middle-item",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Get the middle item from an array.",
 	"repository": "https://github.com/Richienb/middle-item.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
