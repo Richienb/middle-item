@@ -77,4 +77,4 @@ The amount of items to get.
 
 Type: `object`
 
-Same as [`middleItem`](#options)
+Same as [`middleItem`](#options).
